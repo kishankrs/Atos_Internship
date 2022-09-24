@@ -1,0 +1,50 @@
+<html>
+<body style="background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(241, 90, 178))";>  
+    <div style="text-align: center">
+
+     
+    <form action="/predict" method="POST" autocomplete="on">
+        Mean Radius: <input type="text" name="radius_mean" autocomplete="radius_mean"><br><br>
+        Mean Texture: <input type="text" name="texture_mean" autocomplete="texture_mean"><br><br>
+        Mean Perimeter: <input type="text" name="perimeter_mean" autocomplete="perimeter_mean"><br><br>
+        Mean Area: <input type="text" name="area_mean" autocomplete="area_mean"><br><br>
+        Mean Compactness: <input type="text" name="compactness_mean" autocomplete="compactness_mean"><br><br>
+        Mean Concativity: <input type="text" name="concavity_mean" autocomplete="concavity_mean"><br><br>
+        Mean Concave points: <input type="text" name="concave_points_mean" autocomplete="concave_points_mean"><br><br>
+        Mean Symmetry: <input type="text" name="symmetry_mean" autocomplete="symmetry_mean"><br><br>
+        radius se: <input type="text" name="radius_se" autocomplete="radius_se"><br><br>
+        perimeter se: <input type="text" name="perimeter_se" autocomplete="perimeter_se"><br><br>
+        area se: <input type="text" name="area_se" autocomplete="area_se"><br><br>
+        smoothness se: <input type="text" name="smoothness_se" autocomplete="smoothness_se"><br><br>
+        compactness se: <input type="text" name="compactness_se" autocomplete="compactness_se"><br><br>
+        concave points se: <input type="text" name="concave_points_se" autocomplete="concave_points_se" ><br><br>
+        symmetry se: <input type="text" name="symmetry_se" autocomplete="symmetry_se"><br><br>
+        fractal dimension se: <input type="text" name="fractal_dimension_se" autocomplete="fractal_dimension_se"><br><br>
+        radius worst: <input type="text" name="radius_worst" autocomplete="radius_worst"><br><br>
+        texture worst: <input type="text" name="texture_worst" autocomplete="texture_worst"><br><br>
+        perimeter worst: <input type="text" name="perimeter_worst" autocomplete="perimeter_worst"><br><br>
+        area worst: <input type="text" name="area_worst" autocomplete="area_worst"><br><br>
+        smoothness worst: <input type="text" name="smoothness_worst" autocomplete="smoothness_worst"><br><br>
+        concavity worst: <input type="text" name="concavity_worst" autocomplete="concavity_worst"><br><br>
+        concave points worst: <input type="text" name="concave_points_worst" autocomplete="concave_points_worst"><br><br>
+        symmetry worst: <input type="text" name="symmetry_worst" autocomplete="symmetry_worst"><br><br>
+        
+
+        <span style="border-top:thick green solid;border-bottom:thick green solid; padding-left:2px;padding-right:2px;">
+          
+          RESULT: {{result}}
+    </span>   
+       <br>
+       <br>
+       <input type="submit" value="predict" style="background-color:#c964f5">
+       <br>
+       <br>
+       Result:0 "Benign"<br>
+       <br>
+       Result:1 "Malignant->Further diagnoses required"
+    </div>
+
+    </form>
+</body>
+
+</html>
