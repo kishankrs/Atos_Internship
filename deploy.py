@@ -40,11 +40,6 @@ def predict():
     concave_points_worst = float(request.form['concave_points_worst'])
     symmetry_worst = float(request.form['symmetry_worst'])
 
-    # POSTMAN BEGIN
-
-
-# POSTMAN END
-
     result = model.predict([[radius_mean, texture_mean, perimeter_mean, area_mean,
                              compactness_mean, concavity_mean, concave_points_mean,
                              symmetry_mean, radius_se, perimeter_se, area_se,
@@ -56,7 +51,8 @@ def predict():
     with open("text.txt", "a") as fo:
         sti = str(radius_mean)+","+str(texture_mean)+","+str(perimeter_mean)+","+str(area_mean)+","+str(compactness_mean)+","+str(concavity_mean) + \
             ","+str(concave_points_mean)+","+str(symmetry_mean)+","+str(radius_se) + \
-            ","+str(perimeter_se)+","+str(area_se)+","+str(smoothness_se)+","
+            ","+str(perimeter_se)+","+str(area_se) + \
+            ","+str(smoothness_se)+","
         sti += str(compactness_se)+","+str(concave_points_se) + \
             ","+str(symmetry_se)+","
         sti += str(fractal_dimension_se)+","+str(radius_worst) + \
