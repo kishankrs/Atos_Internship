@@ -5,11 +5,8 @@
       </div>
 
 <body style="background-image: linear-gradient(to right, rgba(255,0,0,0),#1abc9c)" ;>
-
     <div style="text-align: center">
-
-
-        <section action="/predict" method="POST" autocomplete="on">
+    <form action="/predict" method="POST">
             <div style="text-align:right; margin-right:900px; margin-top: 100px;">
                 Mean Radius: <input type="text" name="radius_mean" autocomplete="radius_mean"><br><br>
                 Mean Texture: <input type="text" name="texture_mean" autocomplete="texture_mean"><br><br>
@@ -47,7 +44,6 @@
             </div>
             </div>
 
-        </section>
         <span style="border-top:thick green solid;border-bottom:thick green solid; padding-left:2px;padding-right:2px;">
 
             RESULT: {{result}}

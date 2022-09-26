@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import pickle
 import config
+import csv
 
 app = Flask(__name__)
 # load the model
@@ -48,17 +49,41 @@ def predict():
                              perimeter_worst, area_worst, smoothness_worst, concavity_worst,
                              concave_points_worst, symmetry_worst]])[0]
 
-    with open("text.txt", "a") as fo:
-        sti = str(radius_mean)+","+str(texture_mean)+","+str(perimeter_mean)+","+str(area_mean)+","+str(compactness_mean)+","+str(concavity_mean) + \
-            ","+str(concave_points_mean)+","+str(symmetry_mean)+","+str(radius_se) + \
-            ","+str(perimeter_se)+","+str(area_se) + \
-            ","+str(smoothness_se)+","
-        sti += str(compactness_se)+","+str(concave_points_se) + \
-            ","+str(symmetry_se)+","
-        sti += str(fractal_dimension_se)+","+str(radius_worst) + \
-            ","+str(texture_worst) + str(symmetry_worst)+","
-        sti += str(result)+'\n'
-        fo.write(sti)
+    # with open("text.txt", "a") as fo:
+    #     sti = str(radius_mean)+","+str(texture_mean)+","+str(perimeter_mean)+","+str(area_mean)+","+str(compactness_mean)+","+str(concavity_mean) + \
+    #         ","+str(concave_points_mean)+","+str(symmetry_mean)+","+str(radius_se) + \
+    #         ","+str(perimeter_se)+","+str(area_se) + \
+    #         ","+str(smoothness_se)+","
+    #     sti += str(compactness_se)+","+str(concave_points_se) + \
+    #         ","+str(symmetry_se)+","
+    #     sti += str(fractal_dimension_se)+","+str(radius_worst) + \
+    #         ","+str(texture_worst) + str(symmetry_worst)+","
+    #     sti += str(result)+'\n'
+    #     fo.write(sti)
+
+    headers = ["radius_mean", "texture_mean", "perimeter_mean", "area_mean",
+               "compactness_mean", "concavity_mean", "concave_points_mean",
+               "symmetry_mean", "radius_se", "perimeter_se", "area_se",
+               "smoothness_se", "compactness_se", "concave_points_se", "symmetry_se",
+               "fractal_dimension_se", "radius_worst", "texture_worst",
+               "perimeter_worst", "area_worst", "smoothness_worst", "concavity_worst",
+               "concave_points_worst", "symmetry_worst", "result"]
+
+    data = [radius_mean, texture_mean, perimeter_mean, area_mean,
+            compactness_mean, concavity_mean, concave_points_mean,
+            symmetry_mean, radius_se, perimeter_se, area_se,
+            smoothness_se, compactness_se, concave_points_se, symmetry_se,
+            fractal_dimension_se, radius_worst, texture_worst,
+            perimeter_worst, area_worst, smoothness_worst, concavity_worst,
+            concave_points_worst, symmetry_worst, result]
+    with open('result.csv', 'a', encoding='UTF8', newline='') as f:
+        writer = csv.writer(f)
+
+    # write the header
+        writer.writerow(headers)
+
+    # write the data
+        writer.writerow(data)
 
     return render_template('index.html', **locals())
 
