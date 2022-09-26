@@ -61,14 +61,6 @@ def predict():
     #     sti += str(result)+'\n'
     #     fo.write(sti)
 
-    headers = ["radius_mean", "texture_mean", "perimeter_mean", "area_mean",
-               "compactness_mean", "concavity_mean", "concave_points_mean",
-               "symmetry_mean", "radius_se", "perimeter_se", "area_se",
-               "smoothness_se", "compactness_se", "concave_points_se", "symmetry_se",
-               "fractal_dimension_se", "radius_worst", "texture_worst",
-               "perimeter_worst", "area_worst", "smoothness_worst", "concavity_worst",
-               "concave_points_worst", "symmetry_worst", "result"]
-
     data = [radius_mean, texture_mean, perimeter_mean, area_mean,
             compactness_mean, concavity_mean, concave_points_mean,
             symmetry_mean, radius_se, perimeter_se, area_se,
@@ -78,9 +70,6 @@ def predict():
             concave_points_worst, symmetry_worst, result]
     with open('result.csv', 'a', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
-
-    # write the header
-        writer.writerow(headers)
 
     # write the data
         writer.writerow(data)
